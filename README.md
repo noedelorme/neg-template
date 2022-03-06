@@ -1,20 +1,9 @@
 # Scratch
 
-An empty NodeJS project to really start from Scratch.
+NodeJS template to really start from Scratch. This build uses NodeJS, Express, EJS, SASS and pure Javascript. Gulp is used to watch for file changes, automatically compile scss files, and synchronize the browser.
 
 ## Usage
-
-To run server, just enter the following command. It will watch for files changes, automaticly compile scss and synchronize your browser to see the changes without having to refresh the page.
-
+To run the server, just enter the following command.
 ```bash
 npm run dev
 ```
-
-## Using
-* gulp
-* gulp-nodemon
-* gulp-sass
-* browser-sync
-* express
-* ejs
-* body-parser

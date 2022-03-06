@@ -1,17 +1,19 @@
-/****************
-    REQUIRES
-****************/
+/**************************************
+  MODULE IMPORT
+**************************************/
 const gulp = require('gulp');
 const gulpNodemon = require('gulp-nodemon');
-const gulpSass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const browserSync = require('browser-sync').create();
+const config = require('./config.json');
 
-/****************
-      TASKS
-****************/
-function sass() {
+
+/**************************************
+  TASKS
+**************************************/
+function buildStyles() {
   return gulp.src('./frontend/scss/*.scss')
-    .pipe(gulpSass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./frontend/css/'));
 }
 
@@ -37,8 +39,8 @@ function nodemon(done) {
 
 function sync(done) {
   browserSync.init(null, {
-    proxy: 'http://localhost:8101',
-    port: 8102
+    proxy: config.adress+":"+config.port,
+    port: config.port
   });
   done();
 }
@@ -47,13 +49,14 @@ function watch(done) {
   gulp.watch('./frontend/**/*.ejs').on('change', browserSync.reload);
   gulp.watch('./frontend/**/*.js').on('change', browserSync.reload);
   gulp.watch('./frontend/**/*.css').on('change', browserSync.reload);
-  gulp.watch('./frontend/**/*.scss').on('change', sass);
+  gulp.watch('./frontend/**/*.scss').on('change', buildStyles);
   done();
 }
 
-/****************
-     EXPORTS
-****************/
+
+/**************************************
+  EXPORTS
+**************************************/
 module.exports = {
   default: gulp.parallel(nodemon, watch, sync)
 }
