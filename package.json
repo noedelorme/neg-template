@@ -1,13 +1,9 @@
 {
-  "name": "scratch",
+  "name": "neg-template",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "gulp"
   },
-  "author": "noedelorme",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^3.1.3",

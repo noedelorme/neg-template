@@ -1,6 +1,6 @@
-# Scratch
+# NEG Template
 
-NodeJS template to really start from Scratch. This build uses NodeJS, Express, EJS, SASS and pure Javascript. Gulp is used to watch for file changes, automatically compile scss files, and synchronize the browser.
+NodeJS, Express, Gulp template. Start cosily a pure Javascript project. Gulp is used to watch for file changes, automatically compile scss files, and synchronize the browser.
 
 ## Usage
 To run the server, just enter the following command.
